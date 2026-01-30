@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Journey | Eternal Love</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Plus+Jakarta+Sans:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fff5f5;
+            color: #5c4d4d;
+            overflow-x: hidden;
+            background-image: url("https://www.transparenttextures.com/patterns/floral-paper.png");
+        }
+
+        .font-romantis {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .font-header {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .photo-frame {
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .floating-heart {
+            position: fixed;
+            pointer-events: none;
+            z-index: 99;
+            animation: floatUp 4s ease-in forwards;
+            opacity: 0.6;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 0.6; }
+            100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slider-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 1.5rem;
+            padding: 2rem 0;
+            scrollbar-width: none;
+        }
+        .slider-container::-webkit-scrollbar {
+            display: none;
+        }
+        .slider-item {
+            flex: 0 0 85%;
+            scroll-snap-align: center;
+        }
+        @media (min-width: 768px) {
+            .slider-item { flex: 0 0 30%; }
+        }
+
+        /* Video Container Styling */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 133.33%; /* Match 3:4 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #fff5f5; }
+        ::-webkit-scrollbar-thumb { background: #f8d7da; border-radius: 10px; }
+    </style>
+</head>
+<body onclick="createHeart(event)">
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
+        <div class="absolute top-10 left-10 w-40 h-40 opacity-20 rotate-12">
+            <img src="https://www.svgrepo.com/show/396443/flower.svg" alt="Bunga">
+        </div>
+        <div class="absolute bottom-10 right-10 w-48 h-48 opacity-20 -rotate-12">
+            <img src="https://www.svgrepo.com/show/396443/flower.svg" alt="Bunga">
+        </div>
+
+        <div class="text-center z-10">
+            <h2 class="font-romantis text-2xl md:text-3xl text-pink-400 mb-4 opacity-0 animate-[fadeIn_2s_forwards]">Sebuah Catatan Kecil Tentang Kita...</h2>
+            
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-12 py-8">
+                <h1 class="font-header text-6xl md:text-9xl text-stone-700 tracking-tighter opacity-0 animate-[slideRight_1.5s_forwards]">
+                    [Resya]
+                </h1>
+                <span class="font-romantis text-6xl md:text-7xl text-pink-300 animate-pulse">&</span>
+                <h1 class="font-header text-6xl md:text-9xl text-stone-700 tracking-tighter opacity-0 animate-[slideLeft_1.5s_forwards]">
+                    [Rafli]
+                </h1>
+            </div>
+
+            <p class="text-pink-400 tracking-[0.3em] uppercase text-xs md:text-sm mt-8 opacity-0 animate-[fadeIn_3s_forwards] font-semibold">
+                Setiap hari sama kamuu itu rasanya indah banget...
+            </p>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-pink-200">
+            <span class="text-2xl">✿</span>
+        </div>
+    </section>
+
+    <!-- Sweet Words Section -->
+    <section class="max-w-4xl mx-auto px-6 py-24 text-center">
+        <div class="scroll-reveal">
+            <span class="text-pink-400 text-4xl font-romantis block mb-6">Milikmu Selamanya,</span>
+            <p class="font-header italic text-2xl md:text-4xl text-stone-700 leading-relaxed px-4">
+                "Aku tidak butuh dunia yang sempurna, aku cuma butuh seseorang yang tidak akan pernah menyerah sama aku. Dan orang itu adalah kamu."
+            </p>
+            <div class="w-24 h-[1px] bg-pink-200 mx-auto my-12"></div>
+            <p class="text-stone-500 text-lg leading-relaxed max-w-2xl mx-auto italic">
+                "Sama seperti bunga yang pelan-pelan mekar, perasaanku ke kamu juga terus tumbuh setiap hari. Yukk kita lukis kisah kita berduaa lebih banyak lagi.."
+            </p>
+        </div>
+    </section>
+
+    <!-- Gallery Section (3 Photos & 1 Video) -->
+    <section class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-10">
+            <h3 class="font-header text-3xl text-stone-700">Momen Terindah Kita</h3>
+            <p class="text-pink-300 font-romantis text-xl mt-2">Geser untuk melihat foto dan video</p>
+        </div>
+        
+        <div class="slider-container">
+            <!-- FOTO 1 -->
+            <div class="slider-item">
+                <div class="photo-frame bg-white p-4 shadow-xl border border-pink-50 rounded-2xl">
+                    <div class="aspect-[3/4] overflow-hidden rounded-xl bg-pink-50 relative">
+                        <!-- Ganti 'foto1.jpg' dengan nama file foto Anda -->
+                        <img src="photo1.jpeg" alt="Kenangan 1" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1516589174184-c68526534fb8?q=80&w=800'">
+                    </div>
+                    <p class="font-romantis text-center mt-4 text-xl text-stone-600">Momen Lucuu</p>
+                </div>
+            </div>
+
+            <!-- FOTO 2 -->
+            <div class="slider-item">
+                <div class="photo-frame bg-white p-4 shadow-xl border border-pink-50 rounded-2xl">
+                    <div class="aspect-[3/4] overflow-hidden rounded-xl bg-pink-50 relative">
+                        <!-- Ganti 'foto2.jpg' dengan nama file foto Anda -->
+                        <img src="photo2.jpeg" alt="Kenangan 2" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=800'">
+                    </div>
+                    <p class="font-romantis text-center mt-4 text-xl text-stone-600">Cerita Kita</p>
+                </div>
+            </div>
+
+            <!-- FOTO 3 -->
+            <div class="slider-item">
+                <div class="photo-frame bg-white p-4 shadow-xl border border-pink-50 rounded-2xl">
+                    <div class="aspect-[3/4] overflow-hidden rounded-xl bg-pink-50 relative">
+                        <!-- Ganti 'foto3.jpg' dengan nama file foto Anda -->
+                        <img src="photo3.jpeg" alt="Kenangan 3" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1523438885200-e635ba2c371e?q=80&w=800'">
+                    </div>
+                    <p class="font-romantis text-center mt-4 text-xl text-stone-600">Kebahagiaan</p>
+                </div>
+            </div>
+
+            <!-- VIDEO 1 -->
+            <div class="slider-item">
+                <div class="photo-frame bg-white p-4 shadow-xl border border-pink-50 rounded-2xl">
+                    <div class="video-wrapper rounded-xl bg-pink-50">
+                        <!-- Ganti 'video.mp4' dengan nama file video Anda -->
+                        <video controls loop muted playsinline>
+                            <source src="vid1.mp4" type="video/mp4">
+                            
+                        </video>
+                    </div>
+                    <p class="font-romantis text-center mt-4 text-xl text-stone-600">Momen Spesial Kita</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-32 text-center px-6 bg-pink-50/50">
+        <div class="scroll-reveal">
+            <h4 class="font-romantis text-5xl md:text-6xl text-pink-400 mb-6 tracking-wide">Aku Cintaa Kamu.</h4>
+            <p class="text-stone-400 text-sm tracking-widest uppercase">Hari ini, esok, dan selamanya.</p>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        function createHeart(e) {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.innerHTML = Math.random() > 0.5 ? '🌸' : '❤️';
+            heart.style.left = (e.clientX - 10) + 'px';
+            heart.style.top = (e.clientY - 10) + 'px';
+            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 4000);
+        }
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+            @keyframes slideRight { from { opacity: 0; transform: translateX(-60px); } to { opacity: 1; transform: translateX(0); } }
+            @keyframes slideLeft { from { opacity: 0; transform: translateX(60px); } to { opacity: 1; transform: translateX(0); } }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
