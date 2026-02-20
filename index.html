@@ -99,7 +99,6 @@
         ::-webkit-scrollbar-track { background: #fff5f5; }
         ::-webkit-scrollbar-thumb { background: #f8d7da; border-radius: 10px; }
 
-        /* Music Button Animation */
         .music-control {
             position: fixed;
             bottom: 30px;
@@ -130,7 +129,6 @@
 </head>
 <body onclick="createHeart(event)">
 
-    <!-- Music Element -->
     <audio id="bgMusic" loop>
         <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
     </audio>
@@ -156,16 +154,11 @@
                 <h2 class="font-romantis text-2xl md:text-3xl text-pink-400 mb-4 opacity-0 animate-[fadeIn_2s_forwards]">Sebuah Catatan Kecil Tentang Kita...</h2>
                 
                 <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-12 py-8">
-                    <h1 class="font-header text-6xl md:text-9xl text-stone-700 tracking-tighter opacity-0 animate-[slideRight_1.5s_forwards]">
-                        Resya
-                    </h1>
+                    <h1 class="font-header text-6xl md:text-9xl text-stone-700 tracking-tighter opacity-0 animate-[slideRight_1.5s_forwards]">Resya</h1>
                     <span class="font-romantis text-6xl md:text-7xl text-pink-300 animate-pulse">&</span>
-                    <h1 class="font-header text-6xl md:text-9xl text-stone-700 tracking-tighter opacity-0 animate-[slideLeft_1.5s_forwards]">
-                        Rafli
-                    </h1>
+                    <h1 class="font-header text-6xl md:text-9xl text-stone-700 tracking-tighter opacity-0 animate-[slideLeft_1.5s_forwards]">Rafli</h1>
                 </div>
 
-                <!-- Love Counter -->
                 <div class="mt-8 glass-card inline-block px-8 py-4 shadow-xl border border-pink-100 opacity-0 animate-[fadeIn_2.5s_forwards]">
                     <p class="text-stone-500 text-xs uppercase tracking-[0.2em] mb-1 font-semibold">Sudah Bersama Selama</p>
                     <div class="text-3xl font-header text-pink-500" id="love-counter">1 Hari</div>
@@ -252,12 +245,21 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Ragunan Card -->
-                <div class="place-card group cursor-pointer relative overflow-hidden rounded-3xl h-[400px] shadow-lg" onclick="showPlaceDetail('ragunan')">
-                    <img src="https://images.unsplash.com/photo-1534567153574-2b12153a87f0?q=80&w=800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <!-- Ragunan Card (Short Preview) -->
+                <div class="place-card group cursor-pointer relative overflow-hidden rounded-3xl h-[400px] shadow-lg" onclick="showPlaceDetail('ragunan-content')">
+                    <img src="Ragunan1.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
                         <h4 class="text-white font-header text-3xl">Ragunan</h4>
                         <p class="text-pink-200 font-romantis text-xl">Hari yang cerah bersama satwa</p>
+                    </div>
+                </div>
+
+                <!-- Blok M Card (Short Preview) -->
+                <div class="place-card group cursor-pointer relative overflow-hidden rounded-3xl h-[400px] shadow-lg" onclick="showPlaceDetail('blokm-content')">
+                    <img src="blokm1.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
+                        <h4 class="text-white font-header text-3xl">Blok M</h4>
+                        <p class="text-pink-200 font-romantis text-xl">Kulineran & jalan santai sore</p>
                     </div>
                 </div>
                 
@@ -289,9 +291,10 @@
         <p class="font-romantis text-3xl text-pink-400 mb-12">Setiap langkah adalah kenangan...</p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Ragunan Card in Full Page -->
             <div class="glass-card overflow-hidden group shadow-lg">
                 <div class="h-64 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1534567153574-2b12153a87f0?q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="ragunan4.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
                 <div class="p-6">
                     <div class="flex justify-between items-center mb-4">
@@ -299,8 +302,88 @@
                         <span class="text-stone-400 text-xs font-semibold">12 Oktober 2023</span>
                     </div>
                     <h3 class="font-header text-2xl mb-2">Ragunan</h3>
-                    <p class="text-stone-500 text-sm leading-relaxed mb-6 italic">"disinii kita seneng senengg barengg, kamu happy banget liat capibaraa karna dari rumah udah pengen lihat ituu wkwkwk"</p>
-                    <button onclick="showPlaceDetail('ragunan')" class="w-full py-3 bg-pink-400 text-white rounded-xl hover:bg-pink-500 transition-colors shadow-md">Lihat Album Ragunan</button>
+                    <p class="text-stone-500 text-sm leading-relaxed mb-6 italic">"disinii kita seneng senengg barengg, kamu happy banget liat capibaraa..."</p>
+                    
+                    <!-- Ini adalah "Data Hidden" yang akan diambil oleh modal -->
+                    <div id="ragunan-content" class="hidden">
+                        <span class="title">Cerita di Ragunan</span>
+                        <div class="gallery">
+                            <div class="aspect-square bg-pink-50 rounded-2xl overflow-hidden shadow-md">
+                                <img src="Ragunan1.jpeg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1516589174184-c68526534fb8'">
+                            </div>
+                            <div class="aspect-square bg-pink-50 rounded-2xl overflow-hidden shadow-md">
+                                <img src="Ragunan2.jpeg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1529333166437-7750a6dd5a70'">
+                            </div>
+                            <div class="aspect-square bg-pink-50 rounded-2xl overflow-hidden shadow-md">
+                                <img src="Ragunan3.jpeg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1523438885200-e635ba2c371e'">
+                            </div>
+                            <div class="aspect-square bg-pink-50 rounded-2xl overflow-hidden shadow-md relative">
+                                <video class="w-full h-full object-cover" loop muted playsinline autoplay>
+                                    <source src="Ragunanvid1.mp4" type="video/mp4">
+                                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9" class="w-full h-full object-cover">
+                                </video>
+                            </div>
+                            <div class="aspect-square bg-pink-50 rounded-2xl overflow-hidden shadow-md relative">
+                                <video class="w-full h-full object-cover" loop muted playsinline autoplay>
+                                    <source src="Ragunanvid2.mp4" type="video/mp4">
+                                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" class="w-full h-full object-cover">
+                                </video>
+                            </div>
+                            <div class="aspect-square bg-pink-50 rounded-2xl overflow-hidden shadow-md flex items-center justify-center p-4">
+                                <p class="font-romantis text-2xl text-center text-pink-400 italic">"Momen ini paling gak bisa dilupain.."</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button onclick="showPlaceDetail('ragunan-content')" class="w-full py-3 bg-pink-400 text-white rounded-xl hover:bg-pink-500 transition-colors shadow-md">Lihat Album Ragunan</button>
+                </div>
+            </div>
+
+            <!-- Blok M Card in Full Page -->
+            <div class="glass-card overflow-hidden group shadow-lg">
+                <div class="h-64 overflow-hidden">
+                    <img src="hiddenblokm.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs bg-pink-100 text-pink-500 px-3 py-1 rounded-full font-bold">CITY VIBES</span>
+                        <span class="text-stone-400 text-xs font-semibold">20 November 2023</span>
+                    </div>
+                    <h3 class="font-header text-2xl mb-2">Blok M</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed mb-6 italic">"seruu banget cari makan bareng di sini, trus foto-foto estetik..."</p>
+                    
+                    <!-- Ini adalah "Data Hidden" Blok M -->
+                    <div id="blokm-content" class="hidden">
+                        <span class="title">Jejak di Blok M</span>
+                        <div class="gallery">
+                            <div class="aspect-square bg-pink-50 rounded-2xl overflow-hidden shadow-md">
+                                <img src="blokm4.jpeg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1555392858-45cbb515b247'">
+                            </div>
+                            <div class="aspect-square bg-pink-50 rounded-2xl overflow-hidden shadow-md">
+                                <img src="Blokm2.jpeg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1504674900247-0877df9cc836'">
+                            </div>
+                            <video class="w-full h-full object-cover" controls>
+                            <source src="Blokmvid.mp4" type="video/mp4">
+                            </video>
+                            <div class="aspect-square bg-pink-50 rounded-2xl overflow-hidden shadow-md">
+                                <img src="Blokm3.jpeg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b'">
+                            </div>
+                            <div class="aspect-square bg-pink-50 rounded-2xl overflow-hidden shadow-md">
+                                <img src="blokm5.jpeg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b'">
+                            </div>
+                            <div class="aspect-square bg-pink-50 rounded-2xl overflow-hidden shadow-md relative">
+                                <video class="w-full h-full object-cover" controls>
+                            <source src="blokmvid2.mp4" type="video/mp4">
+                            </video>
+</>
+                            </div>
+                            <div class="aspect-square bg-pink-50 rounded-2xl overflow-hidden shadow-md flex items-center justify-center p-4">
+                                <p class="font-romantis text-2xl text-center text-pink-400 italic">"Gak kerasa ya waktu cepet banget kalau sama kamu.."</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button onclick="showPlaceDetail('blokm-content')" class="w-full py-3 bg-pink-400 text-white rounded-xl hover:bg-pink-500 transition-colors shadow-md">Lihat Album Blok M</button>
                 </div>
             </div>
         </div>
@@ -311,43 +394,17 @@
         <div class="max-w-5xl mx-auto px-6 py-12">
             <div class="flex justify-between items-center mb-12">
                 <button onclick="showPage('places-page')" class="text-stone-500 hover:text-pink-500"><i class="fas fa-times text-2xl"></i></button>
-                <h2 id="detail-title" class="font-header text-4xl">Ragunan Stories</h2>
+                <h2 id="detail-title" class="font-header text-4xl">Title</h2>
                 <div class="w-10"></div>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="detail-gallery">
-                <div class="aspect-square bg-pink-50 rounded-2xl overflow-hidden shadow-md">
-                    <img src="Ragunan1.jpeg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1516589174184-c68526534fb8'">
-                </div>
-                <div class="aspect-square bg-pink-50 rounded-2xl overflow-hidden shadow-md">
-                    <img src="Ragunan2.jpeg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1529333166437-7750a6dd5a70'">
-                </div>
-                <div class="aspect-square bg-pink-50 rounded-2xl overflow-hidden shadow-md">
-                    <img src="Ragunan3.jpeg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1523438885200-e635ba2c371e'">
-                </div>
-                <!-- Video Slot 1 -->
-                <div class="aspect-square bg-pink-50 rounded-2xl overflow-hidden shadow-md relative">
-                    <video class="w-full h-full object-cover" loop muted playsinline autoplay>
-                        <source src="Ragunanvid1.mp4" type="video/mp4">
-                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9" class="w-full h-full object-cover">
-                    </video>
-                </div>
-                <!-- Video Slot 2 -->
-                <div class="aspect-square bg-pink-50 rounded-2xl overflow-hidden shadow-md relative">
-                    <video class="w-full h-full object-cover" loop muted playsinline autoplay>
-                        <source src="Ragunanvid2.mp4" type="video/mp4">
-                        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" class="w-full h-full object-cover">
-                    </video>
-                </div>
-                <div class="aspect-square bg-pink-50 rounded-2xl overflow-hidden shadow-md flex items-center justify-center p-4">
-                    <p class="font-romantis text-2xl text-center text-pink-400 italic">"Momen ini paling gak bisa dilupain.."</p>
-                </div>
+                <!-- Content will be injected here from hidden div -->
             </div>
         </div>
     </div>
 
     <script>
-        // Love Counter
         const startDate = new Date(2026, 1, 1); 
         function updateCounter() {
             const now = new Date();
@@ -357,7 +414,6 @@
         }
         updateCounter();
 
-        // Music Toggle Logic
         const music = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('music-btn');
         const musicIcon = document.getElementById('music-icon');
@@ -369,14 +425,13 @@
                 musicBtn.classList.remove('playing');
                 musicIcon.classList.replace('fa-pause', 'fa-music');
             } else {
-                music.play().catch(e => console.log("Interaksi user diperlukan untuk memutar musik"));
+                music.play().catch(e => console.log("Interaksi user diperlukan"));
                 musicBtn.classList.add('playing');
                 musicIcon.classList.replace('fa-music', 'fa-pause');
             }
             isPlaying = !isPlaying;
         }
 
-        // Navigation Logic
         function showPage(pageId) {
             document.getElementById('main-page').classList.add('hidden-page');
             document.getElementById('places-page').classList.add('hidden-page');
@@ -388,14 +443,22 @@
             window.scrollTo(0,0);
         }
 
-        function showPlaceDetail(place) {
-            if(place === 'ragunan') {
-                document.getElementById('detail-title').innerText = "Cerita di Ragunan";
-            }
+        // FUNGSI: Mengambil konten dari div hidden di dalam card
+        function showPlaceDetail(contentId) {
+            const contentSource = document.getElementById(contentId);
+            if (!contentSource) return;
+
+            // Ambil Judul & Gallery dari dalam card
+            const titleText = contentSource.querySelector('.title').innerText;
+            const galleryHTML = contentSource.querySelector('.gallery').innerHTML;
+
+            // Masukkan ke modal
+            document.getElementById('detail-title').innerText = titleText;
+            document.getElementById('detail-gallery').innerHTML = galleryHTML;
+
             showPage('place-detail');
         }
 
-        // Particle Heart Logic
         function createHeart(e) {
             const heart = document.createElement('div');
             heart.className = 'heart-particle';
@@ -407,7 +470,6 @@
             setTimeout(() => { heart.remove(); }, 4000);
         }
 
-        // Intersection Observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -415,7 +477,6 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
 
-        // Styles for Animations
         const style = document.createElement('style');
         style.textContent = `
             @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
